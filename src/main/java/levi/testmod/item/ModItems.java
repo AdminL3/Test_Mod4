@@ -10,17 +10,26 @@ import net.minecraft.registry.Registries;
 import net.minecraft.registry.Registry;
 import net.minecraft.util.Identifier;
 
-import java.util.logging.Logger;
 
 public class ModItems {
     public static final Item JONAH = registerItem("jonah",
+            new Item(new FabricItemSettings()));
+    public static final Item LEVI = registerItem("levi",
+            new Item(new FabricItemSettings()));
+    public static final Item ELMO = registerItem("elmo",
+            new Item(new FabricItemSettings()));
+    public static final Item TITUS = registerItem("titus",
             new Item(new FabricItemSettings()));
     private static Item registerItem(String name, Item item){
         return Registry.register(Registries.ITEM, new Identifier(TestMod.MOD_ID, name), item);
     }
 
-    public static  void addItemsToItemGroup() {
+    public static void addItemsToItemGroup() {
+
         addItemsToItemGroup(ItemGroups.INGREDIENTS, JONAH);
+        addItemsToItemGroup(ItemGroups.INGREDIENTS, LEVI);
+        addItemsToItemGroup(ItemGroups.INGREDIENTS, ELMO);
+        addItemsToItemGroup(ItemGroups.INGREDIENTS, TITUS);
     }
     public static  void addItemsToItemGroup(ItemGroup group, Item item) {
         ItemGroupEvents.modifyEntriesEvent(group).register(entries -> entries.add(item));
